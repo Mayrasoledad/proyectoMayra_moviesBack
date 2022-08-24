@@ -22,6 +22,7 @@ const createMovie = async(req, res, next) => {
         newMovie.year = req.body.year;
         newMovie.genre = req.body.genre;
         newMovie.image = req.body.image;
+        newMovie.description = req.body.description;
 
         // almaceno el guardado en una variable para que se me refleje en consola dentro de data exactamente que estoy
         //guardando en la base de datos

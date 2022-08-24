@@ -9,6 +9,7 @@ const MovieSchema = new Schema({
     year: {type: Number, required: true},
     genre: {type: String, required: true},
     image:{type: String, required: false},
+    description:{type: String, required: false},
 });
 
 const Movie = mongoose.model("movie", MovieSchema);
