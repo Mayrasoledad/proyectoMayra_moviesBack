@@ -1,11 +1,12 @@
 import { Movie } from "../models/movies.model.js";
-
+import { httpStatusCode } from "../../utils/httpStatusCode.js";
 //funcion para hacer el get de todas las movies
 const getAllMovies = async(req, res, next) => {
     try {
         const movies = await Movie.find();
         return res.json({
             status:200,
+            message: httpStatusCode[200],
             data: {movies: movies}   //los datos que quiero que me devuelva
         })
 
@@ -29,6 +30,7 @@ const createMovie = async(req, res, next) => {
         const newMovieDB = await newMovie.save();
         return res.json({
             status: 201,
+            message: httpStatusCode[201],
             data: { movie: newMovieDB }
         })
     } catch (error) {
@@ -44,6 +46,7 @@ const getMovieByID = async (req,res,next) => {
 
         return res.json({
             status:200,
+            message: httpStatusCode[200],
             data: {movie: movieByID},
         });
     } catch (error) {
@@ -62,6 +65,7 @@ const editMovie = async (req,res,next) => {
 
         return res.json({
             status:200,
+            message: httpStatusCode[200],
             data: {movie: movieUpdated},
         });
     } catch (error) {
@@ -77,6 +81,7 @@ const deleteMovie = async (req,res,next) => {
 
         return res.json({
             status:200,
+            message: httpStatusCode[200],
             data: `película eliminada ${movieID}`,
         });
     } catch (error) {
@@ -91,6 +96,7 @@ const findMovieByName = async (req,res,next) => {
         const movieByName = await Movie.find({name: name});
         return res.json({
             status:200,
+            message: httpStatusCode[200],
             data: {movie: movieByName}
         });
     } catch (error) {

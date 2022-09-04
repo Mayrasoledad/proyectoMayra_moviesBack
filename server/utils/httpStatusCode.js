@@ -1,4 +1,4 @@
-module.exports = {
+const httpStatusCode = {
     100:"Continue",
     101:"Switching protocols",
     200: "ok",
